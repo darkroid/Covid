@@ -3,7 +3,10 @@ let NoSureButton = document.getElementById('NotSureBotton');
 let NoButton = document.getElementById('NoBotton');
 let message = document.getElementById('message');
 let h1message = document.getElementById('h1message');
-
+let testa  = document.getElementByclassName('alert')
+let box = document.getElementById('box')
+let BackG = document.getElementsByClassName('container')
+let x = document.getElementsByTagName("BODY")[0];
 
 //เต็ม 91 แต้ม 
 //เขียว 0-14 ไม่ต้องกักตัวเอง แต่ระวังตามปรกติ 
@@ -12,6 +15,7 @@ let h1message = document.getElementById('h1message');
 //แดง 35+  ติดเชื้อ อาการรุนแรง ต้องเข้า ร.พ.ทันที
 var CovidPoint = 0 ;
 var CovidNum = 0 ;
+let Covidtext = "" ;
 
 var CovidEd = 0;
 
@@ -87,45 +91,64 @@ if(Num!=null){
     }
     if(Num === 11){
         h1message.innerHTML = "ตรวจเสร็จเรียบร้อย" ;
-        
         if(CovidEd === 0){CovidPoint += 0};
         if(CovidEd === 1){CovidPoint += (14/2)};
         if(CovidEd === 2){CovidPoint += 14};
+        AllTo()  
     }
-    if(Num ===11){
-        AllTo()
-        
-    }
-}
     
+}
+    if(CovidPoint>=0&& CovidPoint<15) {Covidtext  = "ไม่ต้องกักตัวเอง แต่ระวังตามปรกติ";testa.className="alert alert-success";
+    box.animate ([{background: '#ACFFAD'}],{duration: 500,fill:'forwards'});
+    x.animate ([{background: 'rgba(172, 255, 173,0.5)'}],{duration: 500,fill:'forwards'});
+}
+    if(CovidPoint>=15&&CovidPoint<25) {Covidtext  = "เฝ้าระวัง ให้เตือนคนรอบข้าง อาจติด แต่ไม่รุนแรง";testa.className="alert alert-primary";
+    box.animate ([{background: 'rgba(232, 228, 110,1)'}],{duration: 500,fill:'forwards'});
+    x.animate ([{background: 'rgba(232, 228, 110,0.5)'}],{duration: 500,fill:'forwards'});
+}
+    if(CovidPoint>=25&&CovidPoint<35) {Covidtext  = "อาการกลุ่มไข้หวัดใหญ่ กักตัว ตรวจหาเชื้อด่วน";testa.className="alert alert-warning";
+    box.animate ([{background: 'rgb(243, 197, 131,1)'}],{duration: 500,fill:'forwards'});
+    x.animate ([{background: 'rgb(243, 197, 131,0.5)'}],{duration: 500,fill:'forwards'});
+}
+    if(CovidPoint>34) {Covidtext = "ติดเชื้อ อาการรุนแรง ต้องเข้า ร.พ.ทันที";testa.className="alert alert-danger";
+    box.animate ([{background: 'rgba(213, 76, 76,1)'}],{duration: 500,fill:'forwards'});
+    x.animate ([{background: 'rgba(213, 76, 76,0.5)'}],{duration: 500,fill:'forwards'});
+}
     message.innerHTML = CovidPoint;
 }
 
 function AllTo(){
+    
     setTimeout(function(){
-        if(CovidPoint>=0||covidPoint<15){h1message.innerHTML = "ไม่ต้องกักตัวเอง แต่ระวังตามปรกติ";}
-        if(CovidPoint>=15||covidPoint<25){h1message.innerHTML = "เฝ้าระวัง ให้เตือนคนรอบข้าง อาจติด แต่ไม่รุนแรง";}
-        if(CovidPoint>=25||covidPoint<35){h1message.innerHTML = "อาการกลุ่มไข้หวัดใหญ่ กักตัว ตรวจหาเชื้อด่วน";}
-        if(CovidPoint>34){h1message.innerHTML = "ติดเชื้อ อาการรุนแรง ต้องเข้า ร.พ.ทันที";}
+        testa.animate([{display : 'flex'}],{duration: 500,fill:'forwards'});
+       // testa.style.display = "flex";
+        testa.innerHTML = Covidtext;    
+        setTimeout(function(){
+            testa.animate([{display : 'none'}],{duration: 500,fill:'forwards'});
+            //testa.style.display = "none";   
+        },2000);
     },1000);
+    
 }
 
+
 function YesMessage(){
-    if(CovidNum<12){
+    if(CovidNum<=11){
+        
         CovidEd = 2;   
         UPDATE(CovidNum);
         CovidNum += 1;
     }
 }
 function NoSureMessage(){
-    if(CovidNum<12){
+    if(CovidNum<=11){
         CovidEd = 1;   
         UPDATE(CovidNum);
         CovidNum += 1;
     }
 }
 function NoMessage(){
-    if(CovidNum<12){
+    if(CovidNum<=11){
         CovidEd = 0;   
         UPDATE(CovidNum);
         CovidNum += 1;
