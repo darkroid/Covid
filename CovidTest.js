@@ -3,7 +3,7 @@ let NoSureButton = document.getElementById('NotSureBotton');
 let NoButton = document.getElementById('NoBotton');
 let message = document.getElementById('message');
 let h1message = document.getElementById('h1message');
-let testa  = document.getElementByclassName('alert')
+let testa  = document.getElementById('ss')
 let box = document.getElementById('box')
 let BackG = document.getElementsByClassName('container')
 let x = document.getElementsByTagName("BODY")[0];
@@ -120,14 +120,14 @@ if(Num!=null){
 function AllTo(){
     
     setTimeout(function(){
-        testa.animate([{display : 'flex'}],{duration: 500,fill:'forwards'});
-       // testa.style.display = "flex";
+        //testa.animate([{display : 'flex'}],{duration: 500,fill:'forwards'});
+        testa.style.display = "flex";
         testa.innerHTML = Covidtext;    
         setTimeout(function(){
-            testa.animate([{display : 'none'}],{duration: 500,fill:'forwards'});
-            //testa.style.display = "none";   
-        },2000);
-    },1000);
+            //testa.animate([{display : 'none'}],{duration: 500,fill:'forwards'});
+            location.reload();   
+        },8000);
+    },500);
     
 }
 
