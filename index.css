@@ -19,6 +19,7 @@
     align-items: flex-start;
     justify-items: center;
     padding-top: 30px;
+    font-weight:600 ;
 
 }
 .container .box{
@@ -27,7 +28,8 @@
     justify-items: center;
     border-radius: 40px;
     border: none;
-    background: #ACFFADว
+    background: #ACFFAD;
+    font-weight:900 ;
 }
 
 .container .btn{
@@ -45,4 +47,5 @@
     border-radius: 40px;
     border: none;
     background: #B8B8B8;
+    font-weight:200 ;
 }
