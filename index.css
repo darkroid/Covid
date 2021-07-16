@@ -1,6 +1,9 @@
 *{
     font-family: 'Prompt', sans-serif;   
 }
+body{
+    background: rgba(172, 255, 173,0.5);
+}
 .container{
     height: 100vh ;
     max-width: 100% ;
