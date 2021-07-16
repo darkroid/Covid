@@ -1,10 +1,14 @@
+*{
+ font-family: 'Prompt', sans-serif;   
+}
 
 .container{
     height: 100vh ;
     max-width: 100% ;
     display:grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(3,1fr);  
+    grid-template-rows: repeat(3,1fr);
+    background: rgba(172, 255, 173,0.5)ว
 }
 .alert{
     display:none;
@@ -23,6 +27,7 @@
     justify-items: center;
     border-radius: 40px;
     border: none;
+    background: #ACFFADว
 }
 
 .container .btn{
@@ -39,4 +44,5 @@
     width: 100%;
     border-radius: 40px;
     border: none;
+    background: #B8B8B8;
 }
