@@ -114,7 +114,7 @@ if(Num!=null){
     box.animate ([{background: 'rgba(213, 76, 76,1)'}],{duration: 500,fill:'forwards'});
     x.animate ([{background: 'rgba(213, 76, 76,0.5)'}],{duration: 500,fill:'forwards'});
 }
-    message.innerHTML = (Math.min(1,((CovidPoint-5)/50))*100)+" %";
+    message.innerHTML = Math.max(0,(Math.min(1,((CovidPoint-5)/50))*100))+" %";
 }
 
 function AllTo(){
