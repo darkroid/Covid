@@ -39,7 +39,6 @@ body{
     border-radius: 40px;
     border: none;
     background: rgba(172, 255, 173,0.7);   
-    backdrop-filter: blur(4px);
     min-width: 296px;
 }
 .container .box h1{
@@ -63,7 +62,25 @@ body{
     border-radius: 20px;
     border: none;
     background: rgba(43, 43, 43,0.7);
+    font-weight: 200; 
+    color: white;
+}
+
+.container .btn-reset{
+    display:none;
+    grid-template-columns: 1fr;
+    align-items: flex-end;
+    justify-items: center;
+    gap: 10px;
+    padding-bottom: 30px;
+}
+
+.container .btn-reset button{
+    height: 120px;
+    width: 100%;
+    border-radius: 20px;
+    border: none;
+    background: rgba(43, 43, 43,0.7);
     font-weight: 200;
-    backdrop-filter: blur(4px);
     color: white;
 }

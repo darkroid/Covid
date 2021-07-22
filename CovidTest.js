@@ -7,6 +7,9 @@ let testa  = document.getElementById('ss')
 let box = document.getElementById('box')
 let BackG = document.getElementsByClassName('container')
 
+let btnReset  = document.getElementById('reset')
+let btn  = document.getElementById('btn')
+
 //เต็ม 91 แต้ม 
 //เขียว 0-14 ไม่ต้องกักตัวเอง แต่ระวังตามปรกติ 
 //เหลือง 15-24 เฝ้าระวัง ให้เตือนคนรอบข้าง อาจติด แต่ไม่รุนแรง
@@ -98,10 +101,10 @@ if(Num!=null){
     
 }
     if(CovidPoint>=0&& CovidPoint<15) {Covidtext  = "ไม่ต้องกักตัวเอง แต่ระวังตามปรกติ";testa.className="alert alert-success";
-    box.animate ([{background: '#rgba(172, 255, 173,0.7)'}],{duration: 500,fill:'forwards'});
+    box.animate ([{background: 'rgba(172, 255, 173,0.7)'}],{duration: 500,fill:'forwards'});
 }
     if(CovidPoint>=15&&CovidPoint<25) {Covidtext  = "เฝ้าระวัง ให้เตือนคนรอบข้าง อาจติด แต่ไม่รุนแรง";testa.className="alert alert-primary";
-    box.animate ([{background: 'rgba(232, 228, 110,0.7)'}],{duration: 500,fill:'forwards'});
+    box.animate ([{background: 'rgba(232, 228, 110,1)'}],{duration: 500,fill:'forwards'});
 }
     if(CovidPoint>=25&&CovidPoint<35) {Covidtext  = "อาการกลุ่มไข้หวัดใหญ่ กักตัว ตรวจหาเชื้อด่วน";testa.className="alert alert-warning";
     box.animate ([{background: 'rgb(243, 197, 131,0.7)'}],{duration: 500,fill:'forwards'});
@@ -117,11 +120,10 @@ function AllTo(){
     setTimeout(function(){
         //testa.animate([{display : 'flex'}],{duration: 500,fill:'forwards'});
         testa.style.display = "flex";
-        testa.innerHTML = Covidtext;    
-        setTimeout(function(){
-            //testa.animate([{display : 'none'}],{duration: 500,fill:'forwards'});
-            location.reload();   
-        },8000);
+        testa.innerHTML = Covidtext;   
+        btnReset.style.display = "flex";
+        btn.style.display = "none";
+        
     },500);
     
 }
@@ -150,6 +152,19 @@ function NoMessage(){
     }
 }
 
+function resetWebCovidCheck(){
+    h1message.innerHTML = "มีไข้ (ตัวร้อน 38°+C)";
+    testa.style.display = "none";
+    CovidNum=0;
+    box.animate ([{background:'rgba(172, 255, 173,0.7)'}],{duration: 500,fill:'forwards'});
+    btnReset.style.display = "none";
+    btn.style.display = "grid";
+
+}
+
+
+
 YesButton.addEventListener('click',YesMessage);
 NoSureButton.addEventListener('click',NoSureMessage);
 NoButton.addEventListener('click',NoMessage);
+btnReset.addEventListener('click',resetWebCovidCheck);
