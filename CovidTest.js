@@ -6,7 +6,6 @@ let h1message = document.getElementById('h1message');
 let testa  = document.getElementById('ss')
 let box = document.getElementById('box')
 let BackG = document.getElementsByClassName('container')
-let x = document.getElementsByTagName("BODY")[0];
 
 //เต็ม 91 แต้ม 
 //เขียว 0-14 ไม่ต้องกักตัวเอง แต่ระวังตามปรกติ 
@@ -99,22 +98,18 @@ if(Num!=null){
     
 }
     if(CovidPoint>=0&& CovidPoint<15) {Covidtext  = "ไม่ต้องกักตัวเอง แต่ระวังตามปรกติ";testa.className="alert alert-success";
-    box.animate ([{background: '#ACFFAD'}],{duration: 500,fill:'forwards'});
-    x.animate ([{background: 'rgba(172, 255, 173,0.5)'}],{duration: 500,fill:'forwards'});
+    box.animate ([{background: '#rgba(172, 255, 173,0.7)'}],{duration: 500,fill:'forwards'});
 }
     if(CovidPoint>=15&&CovidPoint<25) {Covidtext  = "เฝ้าระวัง ให้เตือนคนรอบข้าง อาจติด แต่ไม่รุนแรง";testa.className="alert alert-primary";
-    box.animate ([{background: 'rgba(232, 228, 110,1)'}],{duration: 500,fill:'forwards'});
-    x.animate ([{background: 'rgba(232, 228, 110,0.5)'}],{duration: 500,fill:'forwards'});
+    box.animate ([{background: 'rgba(232, 228, 110,0.7)'}],{duration: 500,fill:'forwards'});
 }
     if(CovidPoint>=25&&CovidPoint<35) {Covidtext  = "อาการกลุ่มไข้หวัดใหญ่ กักตัว ตรวจหาเชื้อด่วน";testa.className="alert alert-warning";
-    box.animate ([{background: 'rgb(243, 197, 131,1)'}],{duration: 500,fill:'forwards'});
-    x.animate ([{background: 'rgb(243, 197, 131,0.5)'}],{duration: 500,fill:'forwards'});
+    box.animate ([{background: 'rgb(243, 197, 131,0.7)'}],{duration: 500,fill:'forwards'});
 }
     if(CovidPoint>34) {Covidtext = "ติดเชื้อ อาการรุนแรง ต้องเข้า ร.พ.ทันที";testa.className="alert alert-danger";
-    box.animate ([{background: 'rgba(213, 76, 76,1)'}],{duration: 500,fill:'forwards'});
-    x.animate ([{background: 'rgba(213, 76, 76,0.5)'}],{duration: 500,fill:'forwards'});
+    box.animate ([{background: 'rgba(213, 76, 76,0.7)'}],{duration: 500,fill:'forwards'});
 }
-    message.innerHTML = Math.max(0,(Math.min(1,((CovidPoint-5)/50))*100))+" %";
+    message.innerHTML ="โอกาสเป็น "+Math.max(0,(Math.min(1,((CovidPoint-5)/50))*100))+" %";
 }
 
 function AllTo(){
