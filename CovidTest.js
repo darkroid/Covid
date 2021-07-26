@@ -104,7 +104,7 @@ if(Num!=null){
     box.animate ([{background: 'rgba(172, 255, 173,0.7)'}],{duration: 500,fill:'forwards'});
 }
     if(CovidPoint>=15&&CovidPoint<25) {Covidtext  = "เฝ้าระวัง ให้เตือนคนรอบข้าง อาจติด แต่ไม่รุนแรง";testa.className="alert alert-primary";
-    box.animate ([{background: 'rgba(232, 228, 110,1)'}],{duration: 500,fill:'forwards'});
+    box.animate ([{background: 'rgba(232, 228, 110,0.7)'}],{duration: 500,fill:'forwards'});
 }
     if(CovidPoint>=25&&CovidPoint<35) {Covidtext  = "อาการกลุ่มไข้หวัดใหญ่ กักตัว ตรวจหาเชื้อด่วน";testa.className="alert alert-warning";
     box.animate ([{background: 'rgb(243, 197, 131,0.7)'}],{duration: 500,fill:'forwards'});
@@ -156,6 +156,7 @@ function resetWebCovidCheck(){
     h1message.innerHTML = "มีไข้ (ตัวร้อน 38°+C)";
     testa.style.display = "none";
     CovidNum=0;
+    CovidPoint=0;
     box.animate ([{background:'rgba(172, 255, 173,0.7)'}],{duration: 500,fill:'forwards'});
     btnReset.style.display = "none";
     btn.style.display = "grid";
